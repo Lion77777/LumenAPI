@@ -1,26 +1,37 @@
-# Lumen PHP Framework
+# LumenAPI
+REST API implementation with microframework Lumen
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+# Get started:
+clone the code;
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+go to the project root;
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+install bundles with command: 'composer install';
 
-## Official Documentation
+in the project root copy .env.example file and rename it to .env;
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+edit database configuration in the .env file for your requirements;
 
-## Contributing
+create database with table using command: 'php artisan migrate';
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+run Lumen REST API with command: 'php -S localhost:8000 -t public';
 
-## Security Vulnerabilities
+go to any API Platform, for example Postman and test REST API at the following endpoints:
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## POST: http://localhost:8000/api/loans
+You will create a loan record at the database filling out fields: loaner, sum, loan_date
 
-## License
+## GET: http://localhost:8000/api/loans
+You will get all created loans data from the database
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## GET: http://localhost:8000/api/loans/{id}
+You will get specific loan data from the database replacing {id} with corresponding record id
+
+## PUT: http://localhost:8000/api/loans/{id}
+You will update the specific loan record from the database replacing {id} with corresponding record id and filling out fields: loaner, sum, loan_date
+
+## DELETE: http://localhost:8000/api/loans/{id}
+You will delete specific loan data from the database replacing {id} with corresponding record id
+
+## Testing the REST API
+In the project root to test application run the command: vendor/bin/phpunit
