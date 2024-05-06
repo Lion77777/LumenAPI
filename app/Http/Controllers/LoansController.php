@@ -24,6 +24,12 @@ class LoansController extends Controller
 
     public function createLoan(Request $request) 
     {
+        $this->validate($request, [
+            'loaner' => 'required|unique:loans',
+            'sum' => 'required',
+            'loan_date' => 'required'
+        ]);
+        
         $loan = Loan::create($request->all());
 
         return response()->json($loan, 201);
