@@ -1,10 +1,11 @@
 <?php
+
 namespace Database\Factories;
 
 use App\Models\Loan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LoanFactory extends Factory 
+class LoanFactory extends Factory
 {
     protected $model = Loan::class;
 

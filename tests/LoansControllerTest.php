@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Tests;
 
@@ -18,7 +18,7 @@ class LoansControllerTest extends TestCase
         $response->seeStatusCode(200);
     }
 
-    public function testShowOneLoan() 
+    public function testShowOneLoan()
     {
         $factory = LoanFactory::new();
 
@@ -28,7 +28,7 @@ class LoansControllerTest extends TestCase
         $response->seeStatusCode(200);
     }
 
-    public function testCreateLoan() 
+    public function testCreateLoan()
     {
         $loanData = [
             'loaner' => 'Some Loaner',
@@ -41,7 +41,7 @@ class LoansControllerTest extends TestCase
         $response->seeStatusCode(201);
     }
 
-    public function testUpdateLoan() 
+    public function testUpdateLoan()
     {
         $factory = LoanFactory::new();
         $loan = $factory->create();
@@ -56,7 +56,7 @@ class LoansControllerTest extends TestCase
         $response->seeStatusCode(200);
     }
 
-    public function testDeleteLoan() 
+    public function testDeleteLoan()
     {
         $factory = LoanFactory::new();
         $loan = $factory->create();

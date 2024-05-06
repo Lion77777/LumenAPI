@@ -5,37 +5,36 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use Illuminate\Http\Request;
 
-
-class LoansController extends Controller 
+class LoansController extends Controller
 {
-    public function showAllLoans() 
+    public function showAllLoans()
     {
         $loans = Loan::all();
 
         return response()->json($loans);
     }
 
-    public function showOneLoan($id) 
+    public function showOneLoan($id)
     {
         $loan = Loan::find($id);
 
         return response()->json($loan);
     }
 
-    public function createLoan(Request $request) 
+    public function createLoan(Request $request)
     {
         $this->validate($request, [
             'loaner' => 'required|unique:loans',
             'sum' => 'required',
             'loan_date' => 'required'
         ]);
-        
+
         $loan = Loan::create($request->all());
 
         return response()->json($loan, 201);
     }
 
-    public function updateLoan($id, Request $request) 
+    public function updateLoan($id, Request $request)
     {
         $loan = Loan::findOrFail($id);
 
@@ -44,7 +43,7 @@ class LoansController extends Controller
         return response()->json(["message" => "Loan updated successfully"], 200);
     }
 
-    public function deleteLoan($id) 
+    public function deleteLoan($id)
     {
         $loan = Loan::findOrFail($id);
 
