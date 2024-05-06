@@ -16,3 +16,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(["prefix" => "api"], function () use ($router) {
+    $router->post('loans', ['uses' => 'LoansController@createLoan']);
+    $router->get('loans/{id}', ['uses' => 'LoansController@showOneLoan']);
+    $router->put('loans/{id}', ['uses' => 'LoansController@updateLoan']);
+    $router->delete('loans/{id}', ['uses' => 'LoansController@deleteLoan']);
+    $router->get('loans', ['uses' => 'LoansController@showAllLoans']);
+});
